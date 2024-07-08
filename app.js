@@ -1,5 +1,4 @@
 import express from "express";
-
 import {connectDB} from "./utils/features.js";
 import dotenv from "dotenv"
 import {createServer} from 'http'
@@ -15,9 +14,9 @@ import {corsOptions} from "./constants/config.js";
 import { getSockets } from "./lib/helper.js";
 import { Message } from "./models/message.js";
 import { socketAuthenticator } from "./middlewares/auth.js";
-import userRoute from "../server/routes/user.js"
-import chatRoute from "../server/routes/chat.js"
-import adminRoute from  "../server/routes/admin.js"
+import userRoute from "./routes/user.js"
+import chatRoute from "./routes/chat.js";
+import adminRoute from "./routes/admin.js";
 dotenv.config({
     path:'./.env'
 })
@@ -47,7 +46,7 @@ app.use("/user", userRoute);
 app.use("/chat",chatRoute);
 app.use("/admin",adminRoute);
 io.use((socket, next) => {
-    console.log("bhencho")
+    
     console.log(socket.request.res)
     cookieParser()(
       socket.request,
@@ -121,9 +120,6 @@ io.on("connection", (socket) => {
     });
     });
   
-    
-  
-   
 
 app.use(errorMiddleware)
 

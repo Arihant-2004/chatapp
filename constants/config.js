@@ -1,6 +1,7 @@
 const corsOptions = {
     origin: [
-      "https://chatapp-frontend-1.vercel.app/login"
+      "https://chatapp-frontend-1.vercel.app",
+      "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,

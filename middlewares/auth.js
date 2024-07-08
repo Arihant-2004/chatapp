@@ -5,7 +5,9 @@ import { User } from "../models/user.js";
 
 const isAuthenticated =((req, res, next) => {
      const token = req.cookies["chattu-token"];
-     console.log(token)
+     console.log("haha");
+     console.log(token);
+     
   
     if (!token)
       return next(new ErrorHandler("Please login to access this route", 401));

@@ -158,7 +158,7 @@ const login = TryCatch(async (req, res, next) => {
       );
   console.log(accept)
     if (accept===false) {
-    //   await request.deleteOne();
+      await request.deleteOne();
        console.log("ih");
       return res.status(200).json({
         success: true,
